@@ -21,7 +21,7 @@ foo.close()
 # sure that it contains what you expect it to contain
 
 # YOUR CODE HERE
-bar = open('bar.txt', 'w+')
+bar = open('bar.txt', 'w')
 bar.write("HelloWorld!\nPython is a great language.\nYeah its great!!\n")
 bar.close()
 

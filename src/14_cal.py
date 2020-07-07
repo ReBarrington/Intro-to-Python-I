@@ -31,20 +31,17 @@ import sys
 import calendar
 from datetime import datetime
 
-date_input = input('What year would you like to display? [month] [year]') 
-space = " " in date_input
+print(sys.argv, "sys.argv")
 
-if date_input == '':
-  currentYear = datetime.now().year
-  currentMonth = datetime.now().month
-  print(calendar.month(currentYear, currentMonth))
-
-elif len(date_input) <= 2:
-  month = date_input
-  print(calendar.month(datetime.now().year, int(month)))
-
+if len(sys.argv) > 2:
+  year = int(sys.argv[2])
+  month = int(sys.argv[1])
+  print(calendar.month(year, month))
+elif len(sys.argv) == 2:
+  month = int(sys.argv[1])
+  print(calendar.month(datetime.today().year, month))
+elif len(sys.argv) == 1:
+  print(calendar.month(datetime.today().year, datetime.today().month))
 else: 
-  month, year = date_input.split()
-  print(calendar.month(int(year), int(month)))
-
-
+  print("Please enter Python3 [month] [year] to view calendar.")
+  quit()
